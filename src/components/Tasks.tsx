@@ -1,37 +1,27 @@
-import clipBoardIcon from '../assets/Clipboard.svg'
+import taskCheck from '../assets/Circle.svg'
+import trash from '../assets/Trash.svg'
 
 export function Tasks() {
   return (
-    <section>
-      <div className="w-[46rem] justify-between items-center inline-flex">
-        <div className="flex items-center justify-center gap-4">
-          <p className="text-blue-400 text-sm font-bold font-Inter">
-            Tarefas criadas
+    <div>
+      <div className="w-[46rem] h-20 p-4 bg-neutral-800 rounded-lg shadow border border-zinc-800 justify-start items-center gap-3 inline-flex">
+        <button>
+          <img
+            src={taskCheck}
+            alt="Check circle icon"
+            className="w-4 h-4 relative"
+          />
+        </button>
+        <div>
+          <p className="w-[40rem] text-zinc-100 text-sm font-normal font-Inter leading-tight">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Nobis
+            eligendi in blanditiis voluptate ipsam perferendis.
           </p>
-          <span className="w-6 h-5 px-2 py-0.5 bg-neutral-800 rounded-full justify-center items-center inline-flex text-zinc-300 text-xs font-bold font-Inter">
-            0
-          </span>
         </div>
-
-        <div className="flex items-center justify-center gap-4">
-          <p className="text-indigo-400 text-sm font-bold font-Inter">
-            Concluídas
-          </p>
-          <span className="w-6 h-5 px-2 py-0.5 bg-neutral-800 rounded-full justify-center items-center inline-flex text-zinc-300 text-xs font-bold font-Inter">
-            0
-          </span>
-        </div>
+        <button>
+          <img src={trash} alt="Trash icon" className="w-4 h-4 relative" />
+        </button>
       </div>
-
-      <div className="w-[46rem] mt-6 px-6 py-16 rounded-lg border-t border-zinc-700/95 flex flex-col justify-center items-center">
-        <img className="mb-4" src={clipBoardIcon} alt="Icone clip board" />
-        <p className="text-zinc-500 text-base font-bold font-Inter leading-snug">
-          Você ainda não tem tarefas cadastradas
-        </p>
-        <p className="text-zinc-500 text-base font-normal font-Inter leading-snug">
-          Crie tarefas e organize seus itens a fazer
-        </p>
-      </div>
-    </section>
+    </div>
   )
 }
