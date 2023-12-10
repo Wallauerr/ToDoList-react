@@ -1,7 +1,12 @@
 import { Trash } from '@phosphor-icons/react'
 import taskCheck from '../assets/Circle.svg'
 
-export function Tasks({ content, onDeleteTask }) {
+interface TaskProps {
+  content: string
+  onDeleteTask: (tasks: string) => void
+}
+
+export function Tasks({ content, onDeleteTask }: TaskProps) {
   function handleDeleteTask() {
     onDeleteTask(content)
   }

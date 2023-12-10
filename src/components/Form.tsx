@@ -1,7 +1,7 @@
 // import clipBoardIcon from '../assets/Clipboard.svg'
 import { PlusCircle } from '@phosphor-icons/react'
 
-import { useState } from 'react'
+import { ChangeEvent, useState } from 'react'
 import { Tasks } from './Tasks'
 
 export function Form() {
@@ -16,11 +16,11 @@ export function Form() {
     setNewTask('')
   }
 
-  function handleNewTaskChange() {
+  function handleNewTaskChange(event: ChangeEvent<HTMLInputElement>) {
     setNewTask(event.target.value)
   }
 
-  function deleteTask(taskToDelete) {
+  function deleteTask(taskToDelete: string) {
     const taskWithOutDeletedOne = task.filter((task) => {
       return task !== taskToDelete
     })
