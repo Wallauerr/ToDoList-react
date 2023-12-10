@@ -1,21 +1,52 @@
 // import clipBoardIcon from '../assets/Clipboard.svg'
 import { PlusCircle } from '@phosphor-icons/react'
 
+import { useState } from 'react'
 import { Tasks } from './Tasks'
 
 export function Form() {
+  const [task, setTask] = useState(['Teste!'])
+
+  const [newTask, setNewTask] = useState('')
+
+  function handleCreateNewTask() {
+    event?.preventDefault()
+
+    setTask([...task, newTask])
+    setNewTask('')
+  }
+
+  function handleNewTaskChange() {
+    setNewTask(event.target.value)
+  }
+
+  function deleteTask(taskToDelete) {
+    const taskWithOutDeletedOne = task.filter((task) => {
+      return task !== taskToDelete
+    })
+
+    setTask(taskWithOutDeletedOne)
+  }
+
   return (
     <section className="w-[46rem] flex flex-col gap-16">
-      <form className="flex justify-center items-center gap-2 -mt-7">
+      <form
+        onSubmit={handleCreateNewTask}
+        className="flex justify-center items-center gap-2 -mt-7"
+      >
         <input
-          className="w-[40rem] p-4 bg-neutral-800 rounded-lg border border-stone-950 justify-start items-center inline-flex text-zinc-500 text-base"
+          className="w-[40rem] p-4 bg-neutral-800 rounded-lg border border-stone-950 justify-start items-center inline-flex text-zinc-100 text-base focus:outline outline-1 outline-blue-400"
+          name="task"
           placeholder="Adicione uma nova tarefa"
           type="text"
+          value={newTask}
+          onChange={handleNewTaskChange}
           required
         />
         <button
-          className="w-24 h-14 p-4 bg-blue-400/80 rounded-lg justify-center items-center gap-2 inline-flex text-zinc-100 text-sm font-bold"
+          className="w-24 h-14 p-4 bg-blue-400/80 rounded-lg justify-center items-center gap-2 inline-flex text-zinc-100 text-sm font-bold focus:outline outline-1 outline-blue-400 hover:bg-blue-400 transition duration-200"
           type="submit"
+          title="Criar"
         >
           <p>Criar</p>
           <PlusCircle size={32} />
@@ -45,8 +76,9 @@ export function Form() {
           </div>
         </header>
         <div className="flex flex-col space-y-3">
-          <Tasks />
-          <Tasks />
+          {task.map((task) => {
+            return <Tasks key={task} content={task} onDeleteTask={deleteTask} />
+          })}
         </div>
 
         {/* <div className="w-full mt-6 px-6 py-16 rounded-lg border-t border-zinc-700/95 flex flex-col justify-center items-center">

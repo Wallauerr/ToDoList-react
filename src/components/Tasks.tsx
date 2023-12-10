@@ -1,11 +1,18 @@
+import { Trash } from '@phosphor-icons/react'
 import taskCheck from '../assets/Circle.svg'
-import trash from '../assets/Trash.svg'
 
-export function Tasks() {
+export function Tasks({ content, onDeleteTask }) {
+  function handleDeleteTask() {
+    onDeleteTask(content)
+  }
+
   return (
     <div>
       <div className="w-[46rem] h-20 p-4 bg-neutral-800 rounded-lg shadow border border-zinc-800 justify-start items-center gap-3 inline-flex">
-        <button>
+        <button
+          className="rounded-full focus:outline outline-1 outline-blue-400"
+          title="Marcar como finalizado"
+        >
           <img
             src={taskCheck}
             alt="Check circle icon"
@@ -14,12 +21,15 @@ export function Tasks() {
         </button>
         <div>
           <p className="w-[40rem] text-zinc-100 text-sm font-normal font-Inter leading-tight">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Nobis
-            eligendi in blanditiis voluptate ipsam perferendis.
+            {content}
           </p>
         </div>
-        <button>
-          <img src={trash} alt="Trash icon" className="w-4 h-4 relative" />
+        <button
+          className="rounded text-zinc-300 focus:outline focus:outline-1 focus:outline-red-400 hover:text-red-400 transition duration-200"
+          title="Deletar"
+          onClick={handleDeleteTask}
+        >
+          <Trash />
         </button>
       </div>
     </div>
