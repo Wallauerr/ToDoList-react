@@ -1,9 +1,10 @@
 import { Trash } from '@phosphor-icons/react'
 import taskCheck from '../assets/Circle.svg'
 
-interface TaskProps {
+export interface TaskProps {
   content: string
   onDeleteTask: (tasks: string) => void
+  isCompleted: boolean
 }
 
 export function Tasks({ content, onDeleteTask }: TaskProps) {
