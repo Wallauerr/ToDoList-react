@@ -30,7 +30,7 @@ export function Form() {
 
   const tasksQuantity = task.length
 
-  const tasksCompleted = task.filter((task) => task.isCompleted).length
+  // const taskCompleted = task.filter((task) => task.isCompleted).length
 
   return (
     <section className="w-[46rem] flex flex-col gap-16">
@@ -39,7 +39,7 @@ export function Form() {
         className="flex justify-center items-center gap-2 -mt-7"
       >
         <input
-          className="w-[40rem] p-4 bg-neutral-800 rounded-lg border border-stone-950 justify-start items-center inline-flex text-zinc-100 text-base focus:outline outline-1 outline-blue-400"
+          className="w-[40rem] p-4 bg-neutral-800 rounded-lg border border-stone-950 justify-start items-center inline-flex text-zinc-100 text-base focus:outline outline-2 outline-indigo-400"
           name="task"
           placeholder="Adicione uma nova tarefa"
           type="text"
@@ -75,7 +75,7 @@ export function Form() {
             </p>
 
             <span className="w-auto px-2 py-0.5 bg-zinc-800 rounded-full justify-center items-center flex text-zinc-300 text-xs font-bold font-Inter">
-              {tasksCompleted} de {tasksQuantity}
+              0 de {tasksQuantity}
             </span>
           </div>
         </header>
@@ -86,7 +86,7 @@ export function Form() {
                 key={task}
                 content={task}
                 onDeleteTask={deleteTask}
-                isCompleted={true}
+                isCompleted={false}
               />
             )
           })}
