@@ -83,7 +83,7 @@ git push origin nome-da-sua-branch
 - [React](https://react.dev/)
 - [Tailwindcss](https://tailwindcss.com/)
 - [Phosphor icons](https://phosphoricons.com/)
-- [Figma layout](https://www.figma.com/community/file/1113573231685349036)
+- [Figma layout](https://www.figma.com/file/6wi4IWmXZZasc9EBRMEbqr/ToDo-List-•-Desafio-React-(Copy)?node-id=56%3A96&mode=dev)
 - [Vite](https://vitejs.dev/)
 - [Rocketseat](https://www.rocketseat.com.br/)
 
