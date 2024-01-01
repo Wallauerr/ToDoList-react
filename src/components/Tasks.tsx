@@ -4,11 +4,13 @@ import { useState } from 'react'
 interface TaskProps {
   content: string
   onDeleteTask: (tasks: string) => void
-  isCompleted: boolean
+  onCompleteTask: () => void
 }
 
-export function Tasks({ content, onDeleteTask }: TaskProps) {
+export function Tasks({ content, onDeleteTask, onCompleteTask }: TaskProps) {
   const [isCompleted, setIsCompleted] = useState(true)
+
+  // const [taskCompleted, setTaskCompleted] = useState(0)
 
   function handleDeleteTask() {
     onDeleteTask(content)
@@ -16,6 +18,11 @@ export function Tasks({ content, onDeleteTask }: TaskProps) {
 
   function handleCompleteTask() {
     setIsCompleted(!isCompleted)
+    onCompleteTask()
+
+    // console.log(isCompleted)
+    // setTaskCompleted(taskCompleted + (isCompleted ? -1 : 1))
+    // console.log(taskCompleted)
   }
 
   return (
@@ -42,7 +49,7 @@ export function Tasks({ content, onDeleteTask }: TaskProps) {
           </p>
         </div>
         <button
-          className="rounded text-zinc-300 hover:text-red-400 transition duration-200"
+          className="rounded text-zinc-300 hover:text-red-400 hover:bg-zinc-500/40 transition duration-200"
           title="Deletar"
           onClick={handleDeleteTask}
         >

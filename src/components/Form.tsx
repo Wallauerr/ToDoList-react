@@ -24,13 +24,22 @@ export function Form() {
     const taskWithOutDeletedOne = task.filter((task) => {
       return task !== taskToDelete
     })
-
     setTask(taskWithOutDeletedOne)
   }
 
-  const tasksQuantity = task.length
+  const [isCompleted, setIsCompleted] = useState(true)
+  const [taskCompleted, setTaskCompleted] = useState(0)
 
-  // const taskCompleted = task.filter((task) => task.isCompleted).length
+  function completedTask() {
+    setIsCompleted(!isCompleted)
+    console.log(isCompleted)
+    setTaskCompleted((prevTaskCompleted) =>
+      isCompleted ? prevTaskCompleted + 1 : prevTaskCompleted - 1,
+    )
+    console.log(taskCompleted)
+  }
+
+  const tasksQuantity = task.length
 
   return (
     <section className="w-[46rem] flex flex-col gap-16">
@@ -75,7 +84,7 @@ export function Form() {
             </p>
 
             <span className="w-auto px-2 py-0.5 bg-zinc-800 rounded-full justify-center items-center flex text-zinc-300 text-xs font-bold font-Inter">
-              0 de {tasksQuantity}
+              {taskCompleted} de {tasksQuantity}
             </span>
           </div>
         </header>
@@ -86,7 +95,7 @@ export function Form() {
                 key={task}
                 content={task}
                 onDeleteTask={deleteTask}
-                isCompleted={false}
+                onCompleteTask={completedTask}
               />
             )
           })}
