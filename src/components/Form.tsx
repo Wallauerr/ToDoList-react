@@ -88,7 +88,7 @@ export function Form() {
             </span>
           </div>
         </header>
-        <div className="flex flex-col space-y-3">
+        <div className="flex flex-col space-y-3 mb-3">
           {task.map((task) => {
             return (
               <Tasks

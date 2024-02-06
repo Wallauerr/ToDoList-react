@@ -10,8 +10,6 @@ interface TaskProps {
 export function Tasks({ content, onDeleteTask, onCompleteTask }: TaskProps) {
   const [isCompleted, setIsCompleted] = useState(true)
 
-  // const [taskCompleted, setTaskCompleted] = useState(0)
-
   function handleDeleteTask() {
     onDeleteTask(content)
   }
@@ -19,10 +17,6 @@ export function Tasks({ content, onDeleteTask, onCompleteTask }: TaskProps) {
   function handleCompleteTask() {
     setIsCompleted(!isCompleted)
     onCompleteTask()
-
-    // console.log(isCompleted)
-    // setTaskCompleted(taskCompleted + (isCompleted ? -1 : 1))
-    // console.log(taskCompleted)
   }
 
   return (
