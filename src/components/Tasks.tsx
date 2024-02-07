@@ -43,7 +43,7 @@ export function Tasks({ content, onDeleteTask, onCompleteTask }: TaskProps) {
           </p>
         </div>
         <button
-          className="rounded text-zinc-300 hover:text-red-400 hover:bg-zinc-500/40 transition duration-200"
+          className="rounded text-zinc-300 hover:text-red-500 transition duration-200"
           title="Deletar"
           onClick={handleDeleteTask}
         >

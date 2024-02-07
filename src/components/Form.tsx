@@ -32,11 +32,10 @@ export function Form() {
 
   function completedTask() {
     setIsCompleted(!isCompleted)
-    console.log(isCompleted)
+
     setTaskCompleted((prevTaskCompleted) =>
       isCompleted ? prevTaskCompleted + 1 : prevTaskCompleted - 1,
     )
-    console.log(taskCompleted)
   }
 
   const tasksQuantity = task.length
